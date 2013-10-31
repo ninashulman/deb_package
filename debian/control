@@ -3,13 +3,10 @@ Section: unknown
 Priority: extra
 Maintainer: Nina Shulman <ninas@saasbook.com>
 Build-Depends: debhelper (>= 8.0.0)
+Version: 1.0-1
 Standards-Version: 3.9.2
-Homepage: <insert the upstream URL, if relevant>
-#Vcs-Git: git://git.debian.org/collab-maint/stackstorm-capacity.git
-#Vcs-Browser: http://git.debian.org/?p=collab-maint/stackstorm-capacity.git;a=summary
-
+Homepage: www.stackstorm.com
 Package: stackstorm-capacity
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Depends: 
+Description: stackstorm-capacity deb packaging
