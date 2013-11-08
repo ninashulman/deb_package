@@ -1,6 +1,48 @@
-# -----------------------------------------------------------------------------------------
-# How to build a debian package for Ubuntu
-# -----------------------------------------------------------------------------------------
+# ####################
+# How to set GPGKEY if you do not have it (needed for signing deb packages)
+# ####################
+# Step 0
+$ sudo apt-get install pgp gnupg-agent 
+
+# Step 1
+# To help generating GPG key, get ready to run in a separace shell (on the same machine)
+$ find / &gt; /dev/null   
+# while you are generating gpgkey in the next step and kill this process after GPG key is generated
+
+# Generate gpgkey
+$ gpg --gen-key --no-use-agent 
+  	# option 4 ( RSA (sign only), use defaults)
+	# Observe your gpgkey being generated and save its value
+	# Example:  key 6A25F155 marked as ultimately trusted
+
+# Step 2
+# check that your genkey is listed
+$ gpg --list-secret-keys
+	# Example:
+	# /home/ninas/.gnupg/secring.gpg
+	# -----------------------------
+	# sec   2048R/6A25F155 2013-10-29
+	# uid     Nina Shulman <ninas@saasbook.com>
+
+# Step 3
+# Add your gpgkey to ~/.bashrc file
+# Example of line in  ~/.bashrc file:  export GPGKEY=6A25F155
+
+# Step 4
+#Now restart the gpg-agent and source your .bashrc again:	
+$ killall -q gpg-agent
+$ eval $(gpg-agent --daemon)
+$ source ~/.bashrc
+
+# Step 5
+# check that keys set correctly to the value your exported in ~/.bashrc file
+$ echo $GPGKEY
+
+# ####################
+# How to build stackstorm-capacity debian package for Ubuntu
+# ####################
+# Step 0
+$ sudo apt-get install devscripts
 
 # Step 1 
 # Clone the content of https://github.com/ninashulman/deb_package into package_name-1.0/
@@ -43,9 +85,9 @@ $ dpkg-deb -b package_name-1.0 .
 # Done! package_name_1.0-1_i386.deb is ready to be used  for installation on Ubuntu machine
 # You may rup dpkg -I (with capital I) to see info about this package: $ dpkg -I  package_name_1.0-1_i386.deb
 
-# ------------------------------------------------------------------------------------------------------
+# ####################
 # How to install a debian package on Ubuntu machine
-# ------------------------------------------------------------------------------------------------------
+# ####################
 
 # Step 1
 # Run $ uname -i to make sure that your package was built for your hardware platform architecture
