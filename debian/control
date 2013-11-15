@@ -7,6 +7,6 @@ Version: 1.0-1
 Standards-Version: 3.9.2
 Homepage: www.stackstorm.com
 Package: stackstorm-capacity
-Architecture: i386
+Architecture: amd64
 Depends: 
 Description: stackstorm-capacity deb packaging

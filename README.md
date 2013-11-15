@@ -7,22 +7,22 @@ $ sudo apt-get install pgp gnupg-agent
 # Step 1
 # To help generating GPG key, get ready to run in a separace shell (on the same machine)
 $ find / &gt; /dev/null   
-# while you are generating gpgkey in the next step and kill this process after GPG key is generated
+# run it while you are generating gpgkey in the next step and kill this process after GPG key is generated
 
 # Generate gpgkey
 $ gpg --gen-key --no-use-agent 
-  	# option 4 ( RSA (sign only), use defaults)
-	# Observe your gpgkey being generated and save its value
-	# Example:  key 6A25F155 marked as ultimately trusted
+# option 4 ( RSA (sign only), use defaults)
+# Observe your gpgkey being generated and save its value
+# Example:  key 6A25F155 marked as ultimately trusted
 
 # Step 2
 # check that your genkey is listed
 $ gpg --list-secret-keys
-	# Example:
-	# /home/ninas/.gnupg/secring.gpg
-	# -----------------------------
-	# sec   2048R/6A25F155 2013-10-29
-	# uid     Nina Shulman <ninas@saasbook.com>
+# Example:
+# /home/ninas/.gnupg/secring.gpg
+# -----------------------------
+# sec   2048R/6A25F155 2013-10-29
+# uid     Nina Shulman <ninas@saasbook.com>
 
 # Step 3
 # Add your gpgkey to ~/.bashrc file
@@ -47,7 +47,7 @@ $ sudo apt-get install devscripts
 # Step 1 
 # Clone the content of https://github.com/ninashulman/deb_package into package_name-1.0/
 $ git clone https://github.com/ninashulman/deb_package package_name-1.0
-# Cloned package_name-1.0 directory consist of debian\ and DEBIAN\ which were produced by running
+# Cloned package_name-1.0 directory consists of debian\ and DEBIAN\ which were produced by running
 #               dh_make -e youremail@address -f ../package_name-1.0.orig.tar.gz
 #               and altered to fit the info needed for future building and installation of the package
 
@@ -62,8 +62,9 @@ $ mkdir -p usr/share/package_name
 # Step 4
 # Update the Architecture line in the debian/control file to match the one used on the client machine
 # If in doubt, on the client machine run $ uname -i  
-# Example of the line to include in the control file: 
+# Examples of the line to include in the control file: 
 #       Architecture: i386
+#       Architecture: amd64
 
 # Step 5
 # Check that you have usr/, debian/ , DEBIAN/, and README.md , inside package_name-1.0/
@@ -75,7 +76,7 @@ $ debuild -S
 #   click y for yes when prompted   
 
 # Step 7
-# Go up to package_name-1.0/ and observe package_name_1.0-1.dsc being created there 
+# Go outside of_name-1.0/ and observe package_name_1.0-1.dsc being created there 
 $ cd ..
 
 # Step 8
