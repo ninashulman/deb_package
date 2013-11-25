@@ -1,7 +1,7 @@
 Source: stackstorm-capacity
 Section: unknown
 Priority: extra
-Maintainer: Nina Shulman <ninas@saasbook.com>
+Maintainer: Nina Shulman <ninkin@yahoo.com>
 Build-Depends: debhelper (>= 8.0.0)
 Version: 1.0-1
 Standards-Version: 3.9.2
