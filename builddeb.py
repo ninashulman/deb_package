@@ -17,6 +17,10 @@ def cleanUp(msg):
     print msg
     sys.exit()
 
+if os.system('sudo apt-get install devscripts dh-make'):
+	print "Failed to install debian build tools: devscripts and dh-make"
+	print "Failed.  Cannot build without the tools."
+	sys.exit()
 
 # Create debtmp directory for temprorary files which will be deleted later
 if os.path.exists('debtmp'):
