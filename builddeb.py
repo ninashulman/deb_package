@@ -40,8 +40,8 @@ print 'Created %s directory for StackStorm source code' % sourceDir
 os.chdir(sourceDir)
 
 # Download and unzip solr
-if (os.system('wget http://mirrors.sonic.net/apache/lucene/solr/4.6.0/solr-4.6.0.tgz')
-    os.system('tar -xvpf solr-4.6.0.tgz')
+if (os.system('wget http://mirrors.sonic.net/apache/lucene/solr/4.6.0/solr-4.6.0.tgz') or
+    os.system('tar -xvpf solr-4.6.0.tgz') or
     os.system('rm solr-4.6.0.tgz')
     ):
     # if os.system returs error code, then if statatemnt is true
