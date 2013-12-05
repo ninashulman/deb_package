@@ -39,6 +39,14 @@ os.makedirs(sourceDir)
 print 'Created %s directory for StackStorm source code' % sourceDir
 os.chdir(sourceDir)
 
+# Download and unzip solr
+if (os.system('wget http://mirrors.sonic.net/apache/lucene/solr/4.6.0/solr-4.6.0.tgz')
+    os.system('tar -xvpf solr-4.6.0.tgz')
+    os.system('rm solr-4.6.0.tgz')
+    ):
+    # if os.system returs error code, then if statatemnt is true
+    cleanUp('Failed to download and unzip solr used by StackStorm. Discontinue the building process.')
+
 # Clone source into stackstorm-capacity-1.0/usr/share/stackstorm-capacity/
 # os.system returns 0 if the action completed successfully and error code (> 0) if action failed
 if (os.system('git clone https://github.com/StackStorm/osh -b master') or
