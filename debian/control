@@ -3,7 +3,6 @@ Section: net
 Priority: extra
 Maintainer: Nina Shulman <ninkin@yahoo.com>
 Build-Depends: debhelper (>= 8.0.0)
-Version: 1.0-1
 Standards-Version: 3.9.3
 Homepage: http://www.stackstorm.com
 
