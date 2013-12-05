@@ -1,0 +1,10 @@
+Source: stackstorm-capacity
+Section: net
+Priority: extra
+Maintainer: Nina Shulman <ninkin@yahoo.com>
+Version: 1.0-1
+Homepage: http://www.stackstorm.com
+Package: stackstorm-capacity
+Architecture: amd64
+Depends: 
+Description: stackstorm-capacity deb packaging
